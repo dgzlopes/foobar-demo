@@ -6,7 +6,7 @@ from opentracing.propagation import Format
 from jaeger_client import Config
 
 # :)
-# import random
+import random
 
 
 def init_tracer(service):
