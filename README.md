@@ -1,5 +1,12 @@
 ## FooBar
 
+> Tested with Python==3.8.3
+
+Install requirements:
+
+```
+pip install -r requirements.txt
+```
 Run services:
 
 ```
