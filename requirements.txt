@@ -1,4 +1,7 @@
-Flask==1.0.2
-opentracing==2.3.0
-jaeger_client==4.3.0
-requests==2.25.0
+Flask
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-exporter-jaeger
+opentelemetry-instrumentation-flask
+opentelemetry-instrumentation-requests
+requests
