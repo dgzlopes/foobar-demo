@@ -10,7 +10,7 @@ from opentelemetry.sdk.trace.export import BatchExportSpanProcessor
 jaeger_exporter = jaeger.JaegerSpanExporter(
     service_name="service-foo",
     # configure agent
-    agent_host_name="localhost",
+    agent_host_name="otel-collector",
     agent_port=6831,
 )
 
@@ -29,7 +29,7 @@ RequestsInstrumentor().instrument()
 def foo():
     tracer = trace.get_tracer(__name__)
     with tracer.start_as_current_span("bar-request"):
-        r = requests.get("http://localhost:8084/bar")
+        r = requests.get("http://bar:5000/bar")
     return "foo" + r.text
 
 

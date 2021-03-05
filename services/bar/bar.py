@@ -9,7 +9,7 @@ from opentelemetry.sdk.trace.export import BatchExportSpanProcessor
 jaeger_exporter = jaeger.JaegerSpanExporter(
     service_name="service-bar",
     # configure agent
-    agent_host_name="localhost",
+    agent_host_name="otel-collector",
     agent_port=6831,
 )
 
