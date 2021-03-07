@@ -11,9 +11,11 @@ Run services:
 
 ```
 # one terminal
-python foo.py
+export FLASK_APP=foo.py
+flask run --port 5000
 # another terminal
-python bar.py
+export FLASK_APP=bar.py
+flask run --port 5001
 ```
 
 ## Jaeger
