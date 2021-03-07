@@ -15,6 +15,7 @@ Here's a small diagram:
 <p align="center">
 <img src="media/diagram.png" alt="diagram" />
 </p>
+
 ## QuickStart
 
 Requirements: Docker, Docker Compose, and k6.
