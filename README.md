@@ -1,47 +1,22 @@
 ## FooBar
 
-> Tested with Python==3.8.3
-
-Install requirements:
-
+Build and run services with docker-compose:
 ```
-pip install -r requirements.txt
-```
-Run services:
-
-```
-# one terminal
-export FLASK_APP=foo.py
-flask run --port 5000
-# another terminal
-export FLASK_APP=bar.py
-flask run --port 5001
+docker-compose up --build -d 
 ```
 
-## Jaeger
-
-Run Jaeger:
+See running services with:
 ```
-docker run -d --name demo \
-  -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
-  -p 5775:5775/udp \
-  -p 6831:6831/udp \
-  -p 6832:6832/udp \
-  -p 5778:5778 \
-  -p 16686:16686 \
-  -p 14268:14268 \
-  -p 14250:14250 \
-  -p 9411:9411 \
-  jaegertracing/all-in-one:1.22
+docker-compose ps
 ```
 
-Go to Jaeger UI:
-
-http://localhost:16686
-
-Remove Jaeger:
-
+See logs with:
 ```
-docker stop demo; docker rm demo
+docker-compose logs foo bar
+```
+
+Shutdown setup with:
+```
+docker-compose stop
 ```
 
