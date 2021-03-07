@@ -2,6 +2,7 @@ receivers:
   jaeger:     
     protocols:
       thrift_compact:
+      thrift_http:
 exporters:
   otlp:
     endpoint: tempo:55680
