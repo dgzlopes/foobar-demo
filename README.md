@@ -43,6 +43,9 @@ docker-compose logs foo bar
 5. Pick a `trace_id` from the logs.
 
 6. Go to Grafana (http://localhost:3000) -> Explore -> Tempo and paste the `trace_id`.
+<p align="center">
+<img src="media/trace.png" alt="diagram" />
+</p>
 
 7. Stop the whole setup with:
 ```
