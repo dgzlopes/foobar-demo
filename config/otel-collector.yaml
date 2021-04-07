@@ -1,8 +1,8 @@
-receivers:    
-  jaeger:     
+receivers:
+  otlp:
     protocols:
-      thrift_compact:
-      thrift_http:
+      grpc:
+      http:
 exporters:
   otlp:
     endpoint: tempo:55680
@@ -10,5 +10,5 @@ exporters:
 service:
   pipelines:
     traces:
-      receivers: [jaeger]
+      receivers: [otlp]
       exporters: [otlp]
