@@ -7,7 +7,7 @@ export let options = {
 };
 
 export default function () {
-  let res = http.get('http://127.0.0.1:5000/foo');
+  let res = http.get('http://foo:5000/foo');
   check(res, {
     'is status 200': (r) => r.status === 200,
     'returns foobar': (r) => r.body == "foobar",

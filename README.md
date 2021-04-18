@@ -18,7 +18,7 @@ Here's a small diagram:
 
 ## QuickStart
 
-Requirements: Docker, Docker Compose, and k6.
+Requirements: Docker and Docker Compose.
 
 1. Build and run services with docker-compose:
 ```
@@ -32,7 +32,7 @@ docker-compose ps
 
 3. Generate some load with k6:
 ```
-k6 run example.js
+docker run -i --network=foobar-demo_default loadimpact/k6 run --quiet - <example.js
 ```
 
 4. See logs with:
