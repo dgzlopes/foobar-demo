@@ -29,12 +29,13 @@ services:
     command: ["-config.file=/etc/tempo.yaml"]
     ports:
       - "3100:3100"
+      - "55680:55680"
     volumes:
       - ./config/tempo.yaml:/etc/tempo.yaml
       - ./example-data/tempo:/tmp/tempo
 
   grafana:
-    image: grafana/grafana:7.5.2
+    image: grafana/grafana:7.5.4
     volumes:
       - ./config/datasources:/etc/grafana/provisioning/datasources
     environment:
