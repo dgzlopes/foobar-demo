@@ -7,7 +7,7 @@ On this demo:
 - Services foo and bar:
   - Are written in Python.
   - Are instrumented with OpenTelemetry.
-  - Export the spans to an OpenTelemetry Collector using the Jaeger exporter.
+  - Export the spans to an OpenTelemetry Collector using the OTLP exporter.
 - The OpenTelemetry Collector exports the tracing data to Grafana Tempo.
 - Grafana Tempo can be queried from Grafana.
 
