@@ -54,7 +54,7 @@ default_handler.setFormatter(
 @app.route("/bar")
 def bar():
     random_value = random()  # random number in range [0.0,1.0)
-    if random_value < 0.01:
+    if random_value < 0.05:
         return "Edge case!", 500
     return "bar"
 
