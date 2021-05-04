@@ -37,7 +37,7 @@ docker run -i --network=foobar-demo_default loadimpact/k6 run --quiet - <example
 
 4. See logs with:
 ```
-docker-compose logs foo bar
+docker-compose logs foo | grep trace_id
 ```
 
 5. Pick a `trace_id` from the logs.
