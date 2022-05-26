@@ -7,11 +7,13 @@ services:
     environment:
       - BAR_ENDPOINT=http://bar:5000/bar
       - AGENT_HOSTNAME=otel-collector
+      - PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
 
   bar:
     build: ./services/bar/.
     environment:
       - AGENT_HOSTNAME=otel-collector
+      - PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
   
   otel-collector:
     image: otel/opentelemetry-collector:0.25.0
