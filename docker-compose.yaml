@@ -1,6 +1,7 @@
 version: "2"
 services:
   foo:
+    privileged: true
     build: ./services/foo/.
     ports:
       - "5000:5000"
@@ -9,12 +10,14 @@ services:
       - AGENT_HOSTNAME=otel-collector
 
   bar:
+    privileged: true
     build: ./services/bar/.
     environment:
       - AGENT_HOSTNAME=otel-collector
-  
+ 
   otel-collector:
-    image: otel/opentelemetry-collector:0.25.0
+    privileged: true
+    image: docker.io/otel/opentelemetry-collector:0.25.0
     ports:
       - "6831:6831"
       - "14268:14268"
@@ -22,11 +25,16 @@ services:
     volumes:
       - ./config/otel-collector.yaml:/config/otel-collector.yaml
     command:
+      - chmod 777 /config/otel-collector.yaml
       - --config=/config/otel-collector.yaml
 
   tempo:
-    image: grafana/tempo:0.7.0
-    command: ["-config.file=/etc/tempo.yaml"]
+    privileged: true
+    image: docker.io/grafana/tempo:0.7.0
+    command: 
+      - chmod 777 /etc/tempo.yaml
+      - chmod 777 /tmp/tempo
+      - "-config.file=/etc/tempo.yaml"
     ports:
       - "3100:3100"
       - "55680:55680"
@@ -35,12 +43,14 @@ services:
       - ./example-data/tempo:/tmp/tempo
 
   grafana:
-    image: grafana/grafana:7.5.4
+    image: docker.io/grafana/grafana:7.5.4
+    command:
+      - chmod 777 /etc/grafana/provisioning/datasources
     volumes:
-      - ./config/datasources:/etc/grafana/provisioning/datasources
+      - /home/giulio/grafana/foobar-demo/config/datasources:/etc/grafana/provisioning/datasources
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_AUTH_DISABLE_LOGIN_FORM=true
     ports:
-      - "3000:3000"
+      - "8080:3000"
