@@ -32,7 +32,7 @@ docker-compose ps
 
 3. Generate some load with k6:
 ```
-docker run -i --network=foobar-demo_default loadimpact/k6 run --quiet - <example.js
+docker run -i --network=foobar-demo_default grafana/k6 run --quiet - <example.js
 ```
 
 4. See logs with:
